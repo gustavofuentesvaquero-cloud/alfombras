@@ -1,65 +1,42 @@
-import Image from "next/image";
+import Hero from "@/components/home/Hero";
+import RugFinder from "@/components/home/RugFinder";
+import Trending from "@/components/home/Trending";
+import AdUnit from "@/components/ads/AdUnit";
+import FactChecked from "@/components/article/FactChecked";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero />
+      
+      <div className="max-w-7xl mx-auto px-4 w-full">
+        <AdUnit type="inline" />
+      </div>
+      
+      <RugFinder />
+      <Trending />
+      
+      {/* Intro Content for SEO */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-lg prose-headings:font-serif max-w-none text-foreground/80">
+            <h2 className="text-3xl font-bold font-serif text-foreground mb-6">Your Guide to North American Rugs</h2>
+            <FactChecked />
+            <p className="mb-4 text-lg">
+              Choosing the right rug can transform your living space from cold to cozy, tying together your furniture and decor into a cohesive "Coastal Farmhouse" or "Modern Minimalist" look. Our mission at Modern Looms is to help you navigate the complexity of the North American rug market.
+            </p>
+            <AdUnit type="inline" />
+            <p className="mt-4 text-lg">
+              Whether you are looking for the durability of a 100% Wool Rug, the historic charm of a Vintage piece, or the practical nature of Washable rugs for a busy family with pets, Modern Looms has you covered with expert advice.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+      
+      {/* Sticky Mobile Ad */}
+      <div className="sm:hidden">
+        <AdUnit type="sticky-bottom" />
+      </div>
+    </>
   );
 }
